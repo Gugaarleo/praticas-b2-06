@@ -9,3 +9,5 @@ CREATE TABLE user (
 
 INSERT INTO user VALUES (null,"teste@teste.com","12345678");
 INSERT INTO user VALUES (null,"teste2@teste.com","87654321");
+INSERT INTO user VALUES (null,"teste3@teste.com","supersenha");
+INSERT INTO user VALUES (null,"teste4@teste.com","souhacker");
