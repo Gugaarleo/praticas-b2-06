@@ -1,11 +1,10 @@
 import os
 from flask import Flask, Markup, render_template, request
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
 from sqlalchemy import create_engine
 
-db_connect = create_engine('mysql://root:my-password@db/my_database')
-#db_connect = create_engine('sqlite:///mydb.db')
+#db_connect = create_engine('mysql://root:my-password@db/my_database')
+db_connect = create_engine('sqlite:///mydb.db')
 
 app = Flask(__name__)
 
