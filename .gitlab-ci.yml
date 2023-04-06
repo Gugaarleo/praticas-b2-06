@@ -6,7 +6,15 @@
 # Note that environment variables can be set in several places
 # See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
 stages:
+- ver
 - security
+
+ver:
+  stage: ver
+  script:
+    - python --version
+    - whoami
+
 sast:
   stage: security
   artifacts:
