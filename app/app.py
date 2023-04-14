@@ -10,8 +10,12 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = db_connect
 
+@app.route("/")
+def hello():
+    return "<h1>Hello World!</h1>"
+
 @app.route("/login")
-def teste():
+def login():
     # Recuperar parâmetros passados via URL após "?"
     id = request.args.get('id')
     user = request.args.get('user')
@@ -50,6 +54,5 @@ def teste():
 
     return render_template('index.html', result=result)
     
-
 if __name__ == "__main__":
     app.run(debug=True)
