@@ -4,7 +4,7 @@ from sqlalchemy.sql import text
 from sqlalchemy import create_engine
 
 #db_connect = create_engine('mysql://root:my-password@db/my_database')
-db_connect = create_engine('sqlite:///mydb.db')
+db_connect = create_engine('sqlite:///mydb.db', echo=True)
 
 app = Flask(__name__)
 
@@ -23,14 +23,14 @@ def login():
     
     conn = db_connect.connect()
 
-    #sql_Query_Not_Injection = text("select * from user where id=:user_id")
-    #result = conn.execute(sql_Query_Not_Injection, user_id = id)
+    sql_Query_Not_Injection = text("select * from user where id=:user_id")
+    result = conn.execute(sql_Query_Not_Injection, user_id = id)
     
     #sql_Query_Injection_False_Negative = text("select * from user where id={}".format(id))
     #result = conn.execute(sql_Query_Injection_False_Negative)
 
-    sql_Query_Injection = "select * from user where id={}".format(id)
-    result = conn.execute(sql_Query_Injection)
+    #sql_Query_Injection = "select * from user where id={}".format(id)
+    #result = conn.execute(sql_Query_Injection)
 
     # user = [row[1] for row in result]
     content = "<table>"
