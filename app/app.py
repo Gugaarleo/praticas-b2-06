@@ -66,12 +66,12 @@ def login():
         #sql_Query_Not_Injection = text("SELECT * FROM users WHERE id=:user_id")
         #result = conn.execute(sql_Query_Not_Injection, parameters=dict(user_id = id))
         
-        sql_Query_Injection_False_Negative = text("SELECT * FROM users WHERE id={}".format(id))
-        result = conn.execute(sql_Query_Injection_False_Negative)
+        #sql_Query_Injection_False_Negative = text("SELECT * FROM users WHERE id={}".format(id))
+        #result = conn.execute(sql_Query_Injection_False_Negative)
 
         # deprecated in SQLAlchemy >=2.0
-        #sql_Query_Injection = "SELECT * FROM users WHERE id={}".format(id)
-        #result = conn.execute(sql_Query_Injection)
+        sql_Query_Injection = "SELECT * FROM users WHERE id={}".format(id)
+        result = conn.execute(sql_Query_Injection)
 
         content = "<table>"
         content = content + str("<tr>")
