@@ -10,6 +10,7 @@ image:
 
 stages:
 - ver
+- test
 - security
 
 ver:
