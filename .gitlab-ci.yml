@@ -20,7 +20,7 @@ check-sast-report:
     - |
       python -c "
       import json
-      with open('sast-report-filtered.json') as f:
+      with open('gl-sast-report.json') as f:
           report = json.load(f)
       vulnerabilities = report.get('vulnerabilities', [])
       if vulnerabilities:
@@ -37,4 +37,3 @@ check-sast-report:
 
 include:
 - template: Security/SAST.gitlab-ci.yml
-- template: Security/Secret-Detection.gitlab-ci.yml

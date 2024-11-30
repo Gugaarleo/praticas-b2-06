@@ -9,15 +9,6 @@ Aplicação Flask com uso de um banco de dados, para demonstração de uma vulne
 - Algumas abordagens para contorno:
     - Separar adequadamente comandos e dados dinâmicos, evitando uma concatenação direta de caracteres;
     - Uso de frameworks de apoio para construção e execução de instruções SQL.
-
-## mydb.db
-
-|id|user |password|
-|--|--|--|
-|1 |teste@teste.com |1234|
-|2 |teste2@teste.com |1234|
-|3 |teste@teste.com |12345678|
-|4 |teste2@teste.com |87654321|
   
 ## Código
 
@@ -46,6 +37,15 @@ $ docker compose up -d
 ```
 $ python app/app.py run
 ```
+
+## mydb.db
+
+|id|user |password|
+|--|--|--|
+|1 |teste@teste.com |1234|
+|2 |teste2@teste.com |1234|
+|3 |teste@teste.com |12345678|
+|4 |teste2@teste.com |87654321|
 
 ## Exercícios Propostos
 
