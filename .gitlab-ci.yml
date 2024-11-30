@@ -11,6 +11,8 @@ image:
 check-sast-report:
   stage: test
   script:
+    - echo "Listando arquivos disponíveis:"
+    - ls -la
     - echo "Validando o relatório SAST..."
     - |
       python -c "
