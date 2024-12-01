@@ -12,35 +12,40 @@ stages:
   - test
   - validate
 
-semgrep-sast:
-  stage: test
-  artifacts:
-    name: sast
-    paths:
-      - gl-sast-report.json
-    reports:
-      sast: gl-sast-report.json
-    when: always
-
 check-sast-report:
   stage: validate
   script:
-    - echo "Listando arquivos disponíveis:"
-    - ls -la
     - echo "Validando o relatório SAST..."
     - |
       python -c "
       import json
+      
+      # Lendo o relatório
       with open('gl-sast-report.json') as f:
           report = json.load(f)
+      
+      # Obtendo as vulnerabilidades
       vulnerabilities = report.get('vulnerabilities', [])
+      
       if vulnerabilities:
-          print(f'Found {len(vulnerabilities)} vulnerabilities:')
+          print(f'\n== Relatório de Vulnerabilidades ({len(vulnerabilities)} encontradas) ==')
           for vuln in vulnerabilities:
-              print(f'- {vuln.get(\"message\", \"No message\")}')
+              name = vuln.get('name', 'Sem nome')
+              description = vuln.get('description', 'Sem descrição').replace('\n', ' ')
+              file = vuln.get('location', {}).get('file', 'Arquivo não especificado')
+              start_line = vuln.get('location', {}).get('start_line', 'Início desconhecido')
+              end_line = vuln.get('location', {}).get('end_line', 'Fim desconhecido')
+              severity = vuln.get('severity', 'Severidade não especificada')
+              
+              print(f'\n- Nome: {name}')
+              print(f'  Severidade: {severity}')
+              print(f'  Descrição: {description}')
+              print(f'  Arquivo: {file}')
+              print(f'  Linhas: {start_line}-{end_line}')
+          
           exit(1)
       else:
-          print('No vulnerabilities found.')
+          print('Nenhuma vulnerabilidade encontrada.')
       "
   dependencies:
     - semgrep-sast
