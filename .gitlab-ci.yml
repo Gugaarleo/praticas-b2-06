@@ -12,6 +12,16 @@ stages:
   - test
   - validate
 
+semgrep-sast:
+  stage: test
+  artifacts:
+    name: sast
+    paths:
+      - gl-sast-report.json
+    reports:
+      sast: gl-sast-report.json
+    when: always
+
 check-sast-report:
   stage: validate
   script:
