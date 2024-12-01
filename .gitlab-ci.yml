@@ -7,7 +7,17 @@
 # See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
 image: 
   python:latest  # this sets default image for jobs
-  
+
+semgrep-sast:
+  stage: test
+  artifacts:
+    name: sast
+    paths:
+      - gl-sast-report.json
+    reports:
+      sast: gl-sast-report.json
+    when: always
+
 check-sast-report:
   stage: test
   script:
