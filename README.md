@@ -30,27 +30,6 @@ Aplicação Flask com uso de um banco de dados, para demonstração de uma vulne
  - As linhas 31, 32, 66 e 67 **não contém** uma vulnerabilidade SQL Injection;
  - As linhas 35, 36, 69 e 70 **contém** uma vulnerabilidade SQL Injection, **identificável**  no SAST do .gitlab-ci;
 
-## Executando a Aplicação
-
-### Execução com docker compose, com MySQL
-```
-$ docker compose up -d
-```
-
-### Execução local, com SQLite
-```
-$ python app/app.py run
-```
-
-## mydb.db
-
-|id|user |password|
-|--|--|--|
-|1 |teste@teste.com |1234|
-|2 |teste2@teste.com |1234|
-|3 |teste@teste.com |12345678|
-|4 |teste2@teste.com |87654321|
-
 ## Exercícios Propostos
 
 ### 1. Explorar a vulnerabilidade de SQL Injection
@@ -76,5 +55,26 @@ username='%20or%201%3D1%3B%20--%20&password=1234
 ```
 
 ### 2. Corrigir a vulnerabilidade de SQL Injection, retomando a execução do pipeline com sucesso.
+
+## Executando a Aplicação
+
+### Execução com docker compose, com MySQL
+```
+$ docker compose up -d
+```
+
+### Execução local, com SQLite
+```
+$ python app/app.py run
+```
+
+## mydb.db
+
+|id|user |password|
+|--|--|--|
+|1 |teste@teste.com |1234|
+|2 |teste2@teste.com |1234|
+|3 |teste@teste.com |12345678|
+|4 |teste2@teste.com |87654321|
 
 Baseado no projeto [EstudosAvancadosSI](https://github.com/BrunoEleodoro/EstudosAvancadosSI)
