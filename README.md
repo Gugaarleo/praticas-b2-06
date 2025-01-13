@@ -1,7 +1,11 @@
 
-# Aula 10 - DevSecOps  
+# DevSecOps  
 
-Aplicação Flask com uso de um banco de dados, para demonstração de uma vulnerabilidade do tipo SQL Injection, identificável através de um SAST (Static Application Security Testing - Teste Estático de Segurança de Aplicação) especificado no arquivo .gitlab-ci.yml.
+Aplicação Flask com uso de banco de dados, para demonstração de uma vulnerabilidade do tipo SQL Injection, identificável através de um SAST (Static Application Security Testing - Teste Estático de Segurança de Aplicação) especificado no arquivo .gitlab-ci.yml.
+
+O DevSecOps integra práticas de segurança no fluxo de desenvolvimento e operações, promovendo a cultura de "segurança como disciplina". O objetivo é incorporar controles e verificações de segurança desde as primeiras etapas do desenvolvimento, utilizando ferramentas automatizadas para identificar vulnerabilidades em código, dependências e configurações. 
+
+Esta abordagem garante que a segurança seja uma responsabilidade compartilhada entre todas as equipes, contribuindo para a entrega de software robusto e confiável sem comprometer a agilidade do pipeline DevOps.
 
 ## A Vulnerabilidade SQL Injection
 
